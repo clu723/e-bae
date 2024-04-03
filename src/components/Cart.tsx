@@ -9,7 +9,10 @@ type CartProps = {
 };
 
 export function Cart({ isOpen }: CartProps) {
+  // Retrieve props of items in cart
   const { closeCart, cartItems } = useCart();
+
+  // Retrieve props of all products
   const { products } = useProducts();
 
   return (
@@ -19,9 +22,11 @@ export function Cart({ isOpen }: CartProps) {
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Stack gap={3}>
+          {/* Display all items in cart. */}
           {cartItems.map((item) => (
             <CartItem key={item.id} {...item}></CartItem>
           ))}
+          {/* Add up total price of all cart items. */}
           <div className="ms-auto fw-bold fs-5">
             {formatCurrency(
               cartItems.reduce((total, cartItem) => {

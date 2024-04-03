@@ -10,6 +10,8 @@ type CartItemProps = {
 
 export function CartItem({ id, quantity }: CartItemProps) {
   const { removeFromCart } = useCart();
+
+  // Retrieve props of products
   const { products } = useProducts();
 
   // Find the product details using the ID
@@ -38,6 +40,7 @@ export function CartItem({ id, quantity }: CartItemProps) {
         <div className="text-muted">
           <p>{formatCurrency(product.price * quantity)}</p>
         </div>
+        {/* Remove from cart button */}
         <Button
           variant="outline-danger"
           size="sm"

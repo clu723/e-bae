@@ -1,15 +1,7 @@
 import { Button, Card } from "react-bootstrap";
 import { useCart } from "../context/CartContext";
 import { formatCurrency } from "../utilities/FormatCurrency";
-
-export type ProductProps = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  category: string;
-  images: string[];
-};
+import { ProductProps } from "../context/ProductContext";
 
 export function Product({
   id,
@@ -34,6 +26,8 @@ export function Product({
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>
         <Card.Text>{formatCurrency(price)}</Card.Text>
+
+        {/* Add to cart, increase and decrease quantity buttons */}
         <div className="mt-auto">
           {quantity === 0 ? (
             <Button className="w-100" onClick={() => increaseCartQuantity(id)}>

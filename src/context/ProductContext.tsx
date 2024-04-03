@@ -7,12 +7,12 @@ import {
 } from "react";
 import axios from "axios";
 
-type ProductContextType = {
-  products: ProductProps[];
-};
-
 type ProductProviderProps = {
   children: ReactNode;
+};
+
+type ProductContext = {
+  products: ProductProps[];
 };
 
 export type ProductProps = {
@@ -24,9 +24,8 @@ export type ProductProps = {
   images: string[];
 };
 
-const ProductContext = createContext<ProductContextType>({ products: [] });
+const ProductContext = createContext<ProductContext>({ products: [] });
 
-// Custom hook for consuming context
 export function useProducts() {
   return useContext(ProductContext);
 }

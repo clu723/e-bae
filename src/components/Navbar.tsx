@@ -9,7 +9,9 @@ import { NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 export function Navbar() {
+  // Retrieve number of items in cart
   const { openCart, cartQuantity } = useCart();
+
   return (
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
@@ -24,6 +26,7 @@ export function Navbar() {
 
         <NavbarBrand style={{ fontSize: "30px" }}>eBae</NavbarBrand>
 
+        {/* Cart button */}
         <Button
           onClick={openCart}
           style={{
