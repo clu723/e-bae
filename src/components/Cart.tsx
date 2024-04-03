@@ -11,6 +11,7 @@ type CartProps = {
 export function Cart({ isOpen }: CartProps) {
   const { closeCart, cartItems } = useCart();
   const { products } = useProducts();
+
   return (
     <Offcanvas show={isOpen} onHide={closeCart} placement="end">
       <Offcanvas.Header closeButton>

@@ -1,6 +1,6 @@
 import { Button, Stack } from "react-bootstrap";
 import { useCart } from "../context/CartContext";
-import { useProducts } from "../context/ProductContext"; // Ensure this matches your file structure
+import { useProducts } from "../context/ProductContext";
 import { formatCurrency } from "../utilities/FormatCurrency";
 
 type CartItemProps = {
@@ -10,12 +10,12 @@ type CartItemProps = {
 
 export function CartItem({ id, quantity }: CartItemProps) {
   const { removeFromCart } = useCart();
-  const { products } = useProducts(); // Use the custom hook to access product details
+  const { products } = useProducts();
 
   // Find the product details using the ID
   const product = products.find((product) => product.id === id);
 
-  // If product details are not found, render nothing or a placeholder
+  // If product details are not found, render nothing
   if (product == null) return null;
 
   return (

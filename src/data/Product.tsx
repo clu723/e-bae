@@ -1,7 +1,6 @@
 import { Button, Card } from "react-bootstrap";
 import { useCart } from "../context/CartContext";
 import { formatCurrency } from "../utilities/FormatCurrency";
-formatCurrency;
 
 export type ProductProps = {
   id: number;
@@ -22,6 +21,7 @@ export function Product({
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } =
     useCart();
   const quantity = getItemQuantity(id);
+
   return (
     <Card className="h-100">
       <Card.Img
